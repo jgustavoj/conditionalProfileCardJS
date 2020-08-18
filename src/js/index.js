@@ -1,5 +1,6 @@
 import "../style/index.scss";
-
+import { add, sub } from "./math";
+console.log(add(5, 9));
 /**
  *  EDIT ONLY INSIDE THIS RENDER FUNCTION
  *  This function is called every time the user changes types or changes any input
@@ -29,14 +30,27 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  if (variables.name == null && variables.lastname == null) {
+    variables.name = "First";
+    variables.lastname = "Last Name";
+  }
+  if (variables.role == null) {
+    variables.role = "Current Role";
+  }
+  if (variables.city == null && variables.country == null) {
+    variables.city = "City";
+    variables.country = "Country";
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
+
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role} </h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul class= ${variables.socialMediaPosition}>
             <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
             <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
             <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
