@@ -1,6 +1,6 @@
 import "../style/index.scss";
-import { add, sub } from "./math";
-console.log(add(5, 9));
+// import { add, sub } from "./math";
+// console.log(add(5, 9));
 /**
  *  EDIT ONLY INSIDE THIS RENDER FUNCTION
  *  This function is called every time the user changes types or changes any input
@@ -99,7 +99,7 @@ window.onload = function() {
           : this.value == "false"
           ? false
           : this.value;
-      render(Object.assign(window.variables, values)); // render again the card with new valus
+      render(Object.assign(window.variables, values)); // render again the card with new values
     });
   });
 };
